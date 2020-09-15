@@ -9,6 +9,13 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/Morc/[Ll]ibrary/
+/Morc/[Tt]emp/
+/Morc/[Oo]bj/
+/Morc/[Bb]uild/
+/Morc/[Bb]uilds/
+/Morc/[Ll]ogs/
+/Morc/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -42,6 +49,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.dwlt
 
 # Unity3D generated meta files
 *.pidb.meta
