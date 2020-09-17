@@ -17,7 +17,7 @@ public class LoadingScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        progressBar = Resources.Load("Moving Loading Bar") as Image;
+        progressBar = Resources.Load("MovingLoadingBar") as Image;
     }
 
 
