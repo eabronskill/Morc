@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Boar : MonoBehaviour
 {
-    public float currentSpeed, BoostedSpeed;
-    public float speedBoostCD;
-    [HideInInspector] public float speedBoostTimeRemaining;
-    private float speedBoostTimer, originalSpeed;
+    public float currentSpeed, boostMultiplier, slowMultiplier;
+    public float speedBoostCD, slowCD;
+    [HideInInspector] public float speedBoostTimeRemaining, slowTimeRemaining;
+    private float speedBoostTimer, slowTimer, originalSpeed;
 
     //Initialize some variables
     private CharacterController controller;
@@ -15,6 +15,7 @@ public class Boar : MonoBehaviour
     private Transform camera;
 
     public float smoothTurnTime = 0.2f;
+
     float turnSmoothVelocity;
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class Boar : MonoBehaviour
         //Get the player input
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
 
-        Vector3 movement = new Vector3(horizontalMovement * 5f, 0f, currentSpeed).normalized;
+        Vector3 movement = new Vector3(horizontalMovement * 10f, 0f, currentSpeed).normalized;
 
         //If the player pressed anymovement keys
         if (movement.magnitude >= 0.1f)
@@ -53,14 +54,38 @@ public class Boar : MonoBehaviour
         {
             speedBoostTimeRemaining--;
         }
+
+        if (slowTimer > Time.time)
+        {
+            slowTimeRemaining--;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Corn")){
-            currentSpeed = BoostedSpeed;
+            currentSpeed *= boostMultiplier;
             speedBoostTimer = Time.time + speedBoostCD;
             speedBoostTimeRemaining = speedBoostTimer;
+            Invoke("endSpeedBoost", speedBoostCD);
         }
+
+        if (other.CompareTag("Mud"))
+        {
+            currentSpeed *= slowMultiplier;
+            slowTimer = Time.time + slowCD;
+            slowTimeRemaining = slowTimer;
+            Invoke("endSlow", slowCD);
+        }
+    }
+
+    private void endSpeedBoost()
+    {
+        currentSpeed /= boostMultiplier;
+    }
+
+    private void endSlow()
+    {
+        currentSpeed /= slowMultiplier;
     }
 }
