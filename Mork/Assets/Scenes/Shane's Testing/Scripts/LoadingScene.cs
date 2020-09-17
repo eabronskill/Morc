@@ -10,17 +10,21 @@ public class LoadingScene : MonoBehaviour
     [SerializeField]
     private Image progressBar;
 
-
+    public int sceneNumber = 0;
     
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(loadingNextScene());
+        if(sceneNumber==0)
+        {
+            StartCoroutine(loadingNextScene(2));
+        }
+        
     }
 
-    IEnumerator loadingNextScene()
+    IEnumerator loadingNextScene(int scene)
     {
-        AsyncOperation loadScene = SceneManager.LoadSceneAsync(2);
+        AsyncOperation loadScene = SceneManager.LoadSceneAsync(scene);
         while(loadScene.progress < 1)
         {
             progressBar.fillAmount = loadScene.progress;
