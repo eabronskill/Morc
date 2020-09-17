@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class drop : MonoBehaviour
+public class dropRocks : MonoBehaviour
 {
     public List<GameObject> rocks;
     // Start is called before the first frame update
@@ -21,7 +21,10 @@ public class drop : MonoBehaviour
     {
         if (other.CompareTag("Boar"))
         {
-
+            foreach (GameObject rock in rocks)
+            {
+                rock.GetComponent<Rigidbody>().isKinematic = false;
+            }
         }
     }
 }
