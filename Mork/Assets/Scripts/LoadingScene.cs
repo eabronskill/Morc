@@ -17,11 +17,12 @@ public class LoadingScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        progressBar = Resources.Load("Moving Loading Bar") as Image;
     }
 
 
     //Load the next scene when this is called
-    IEnumerator loadingNextScene(string scene)
+    protected IEnumerator loadingNextScene(string scene)
     {
         print("Got Here");
         //Go to the loading screen first
