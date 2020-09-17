@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class EndRace : LoadingScene
 {
-    private void OnCollisionEnter(Collision collision)
+
+    new void Start()
     {
-        if (collision.transform.CompareTag("Boar"))
+        base.Start();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Boar"))
         {
+            print("loading new scene");
             loadingNextScene(nextScene);
         }
     }

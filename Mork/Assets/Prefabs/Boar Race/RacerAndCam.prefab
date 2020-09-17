@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 6972942316052427627}
   - component: {fileID: 6972942316052427628}
   - component: {fileID: 6972942316052427629}
+  - component: {fileID: 254498622989877794}
   m_Layer: 0
   m_Name: Racer
   m_TagString: Boar
@@ -531,6 +532,19 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &254498622989877794
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972942316052427626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.42
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6972942316113570725
 GameObject:
@@ -811,7 +825,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6972942316743295336}
-  m_LocalRotation: {x: 0.14590171, y: 0.000000017022256, z: -0.0000000025104407, w: 0.9892991}
+  m_LocalRotation: {x: 0.14590171, y: -0.000000017022256, z: 0.0000000025104407, w: 0.9892991}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -918,7 +932,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6972942316941468346}
-  m_LocalRotation: {x: 0.12793037, y: -0.000000017065, z: 0.0000000022012188, w: 0.99178314}
+  m_LocalRotation: {x: 0.12793037, y: 0.000000017065, z: -0.0000000022012188, w: 0.99178314}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -992,7 +1006,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6972942316950976337}
-  m_LocalRotation: {x: 0.1638724, y: 0.000000015098912, z: -0.000000002508202, w: 0.98648155}
+  m_LocalRotation: {x: 0.16387242, y: -0.000000021072708, z: 0.0000000035005578, w: 0.98648155}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
