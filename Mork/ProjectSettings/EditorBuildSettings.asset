@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shane's Testing/MainArea.unity
     guid: 4b6f9182300f02e4cbba27f52d3f88c3
+  - enabled: 1
+    path: Assets/Scenes/Shane's Testing/Boar.unity
+    guid: 33b2a27190dc0d34289864923ea0ff99
   m_configObjects: {}
