@@ -13,8 +13,7 @@ public class EndRace : LoadingScene
     {
         if (other.CompareTag("Boar"))
         {
-            print("loading new scene");
-            loadingNextScene(nextScene);
+            this.SendMessage("loadingNextScene", "MainArea");
         }
     }
 }

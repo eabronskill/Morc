@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (game.Equals("Boar"))
         {
-            this.SendMessage("loadingNextScene","Boar Race Test");
+            this.SendMessage("loadingNextScene","ObstacleCourse");
         }
     }
 
