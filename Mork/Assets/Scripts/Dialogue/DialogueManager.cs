@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -46,9 +47,9 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        if(game.Equals("Boar"))
+        if (game.Equals("Boar"))
         {
-            this.SendMessage("loadingNextScene",3);
+            this.SendMessage("loadingNextScene","Boar Race Test");
         }
     }
 

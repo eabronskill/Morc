@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class NpcTarget : MonoBehaviour
         if (col.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F))
         {
             this.SendMessage("TriggerDialogue");
+            Console.WriteLine("Got into Dialogue");
         }
     }
 }

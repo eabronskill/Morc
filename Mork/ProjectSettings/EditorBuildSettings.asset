@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Shane's Testing/MainMenu.unity
     guid: 2717f9d3e2cc8b14f9d67efa6c3bccfe
   - enabled: 1
-    path: Assets/Scenes/Shane's Testing/Loading Screen.unity
+    path: Assets/Scenes/Loading Screen.unity
     guid: 0c1ea5378bb481543859609044f292f7
   - enabled: 1
-    path: Assets/Scenes/Shane's Testing/MainArea.unity
+    path: Assets/Scenes/MainArea.unity
     guid: 4b6f9182300f02e4cbba27f52d3f88c3
   - enabled: 1
     path: Assets/Scenes/Shane's Testing/Boar.unity
     guid: 33b2a27190dc0d34289864923ea0ff99
+  - enabled: 1
+    path: Assets/Scenes/Elliot's Test/Boar Race Test.unity
+    guid: d69b36ba2bda462469e4f490b421c41a
   m_configObjects: {}
