@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainArea.unity
     guid: 4b6f9182300f02e4cbba27f52d3f88c3
   - enabled: 1
-    path: Assets/Scenes/Shane's Testing/Boar.unity
-    guid: 33b2a27190dc0d34289864923ea0ff99
-  - enabled: 1
     path: Assets/Scenes/Elliot's Test/Boar Race Test.unity
     guid: d69b36ba2bda462469e4f490b421c41a
+  - enabled: 1
+    path: Assets/Scenes/ObstacleCourse.unity
+    guid: 63f7aa85b3cdb8d458f83852c0be1e4c
+  - enabled: 1
+    path: Assets/Scenes/Shane's Testing/Boar.unity
+    guid: 33b2a27190dc0d34289864923ea0ff99
   m_configObjects: {}
