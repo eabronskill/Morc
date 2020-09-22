@@ -50,31 +50,33 @@ public class Boar : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (speedBoostTimer > Time.time)
+        if (speedBoostTimer > 0)
         {
-            speedBoostTimeRemaining--;
+            speedBoostTimer -= Time.deltaTime;
+            speedBoostTimeRemaining = Mathf.FloorToInt(speedBoostTimer % 60);
         }
+        else speedBoostTimeRemaining = 0;
 
         if (slowTimer > Time.time)
         {
-            slowTimeRemaining--;
+            slowTimer -= Time.deltaTime;
+            slowTimeRemaining = Mathf.FloorToInt(slowTimer % 60);
         }
+        else slowTimeRemaining = 0;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Corn")){
             currentSpeed *= boostMultiplier;
-            speedBoostTimer = Time.time + speedBoostCD;
-            speedBoostTimeRemaining = speedBoostTimer;
+            speedBoostTimer = speedBoostCD;
             Invoke("endSpeedBoost", speedBoostCD);
         }
 
         if (other.CompareTag("Mud"))
         {
             currentSpeed *= slowMultiplier;
-            slowTimer = Time.time + slowCD;
-            slowTimeRemaining = slowTimer;
+            slowTimer = slowCD;
             Invoke("endSlow", slowCD);
         }
     }
