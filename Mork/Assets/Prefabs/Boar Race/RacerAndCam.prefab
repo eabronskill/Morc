@@ -1700,6 +1700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boar.013
       objectReference: {fileID: 0}
+    - target: {fileID: 6803476232605680656, guid: c59611447b4b11d44a733c4b8f5c18b6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e98e62d9864a922429b5191f3ae7e289, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c59611447b4b11d44a733c4b8f5c18b6, type: 3}
 --- !u!1 &6434019398153466798 stripped
