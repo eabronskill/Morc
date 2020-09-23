@@ -8,6 +8,8 @@ public class Boar : MonoBehaviour
     public float speedBoostCD, slowCD;
     [HideInInspector] public float speedBoostTimeRemaining, slowTimeRemaining;
     private float speedBoostTimer, slowTimer, originalSpeed;
+    private bool raceHasBegun;
+    private bool lost;
 
     //Initialize some variables
     private CharacterController controller;
@@ -29,6 +31,9 @@ public class Boar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lost) return;
+        if (!raceHasBegun) return;
+
         //Get the player input
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
 
@@ -57,7 +62,7 @@ public class Boar : MonoBehaviour
         }
         else speedBoostTimeRemaining = 0;
 
-        if (slowTimer > Time.time)
+        if (slowTimer > 0)
         {
             slowTimer -= Time.deltaTime;
             slowTimeRemaining = Mathf.FloorToInt(slowTimer % 60);
@@ -70,24 +75,34 @@ public class Boar : MonoBehaviour
         if (other.CompareTag("Corn")){
             currentSpeed *= boostMultiplier;
             speedBoostTimer = speedBoostCD;
-            Invoke("endSpeedBoost", speedBoostCD);
+            Invoke(nameof(EndSpeedBoost), speedBoostCD);
         }
 
         if (other.CompareTag("Mud"))
         {
             currentSpeed *= slowMultiplier;
             slowTimer = slowCD;
-            Invoke("endSlow", slowCD);
+            Invoke(nameof(EndSlow), slowCD);
         }
     }
 
-    private void endSpeedBoost()
+    private void EndSpeedBoost()
     {
         currentSpeed /= boostMultiplier;
     }
 
-    private void endSlow()
+    private void EndSlow()
     {
         currentSpeed /= slowMultiplier;
+    }
+
+    public void BeginRace()
+    {
+        raceHasBegun = true;
+    }
+
+    public void Lost()
+    {
+        lost = true;
     }
 }
