@@ -6,6 +6,7 @@ public class Boar : MonoBehaviour
 {
     public float currentSpeed, boostMultiplier, slowMultiplier;
     public float speedBoostCD, slowCD;
+    public float jumpHeight;
     [HideInInspector] public float speedBoostTimeRemaining, slowTimeRemaining;
     private float speedBoostTimer, slowTimer, originalSpeed;
 
@@ -50,6 +51,10 @@ public class Boar : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            Jump();
+        }
         if (speedBoostTimer > 0)
         {
             speedBoostTimer -= Time.deltaTime;
@@ -64,7 +69,6 @@ public class Boar : MonoBehaviour
         }
         else slowTimeRemaining = 0;
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Corn")){
@@ -79,6 +83,12 @@ public class Boar : MonoBehaviour
             slowTimer = slowCD;
             Invoke("endSlow", slowCD);
         }
+    }
+
+    private void Jump()
+    {
+        Vector3 jump = new Vector3(0f, jumpHeight, 0f);
+        controller.Move(jump);
     }
 
     private void endSpeedBoost()
