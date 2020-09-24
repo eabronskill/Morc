@@ -5,7 +5,7 @@ using UnityEngine;
 public class RaceManager : MonoBehaviour
 {
     public float raceTime, countDownTime;
-    [HideInInspector] public float secondsTimeRemaining, countDownTimeRemaining;
+    [HideInInspector] public float secondsTimeRemaining, countDownTimeRemaining, minutesTimeRemaining;
     [HideInInspector] public bool won, lost;
     private Boar boar;
     private EndRace endRace;
@@ -19,6 +19,10 @@ public class RaceManager : MonoBehaviour
         if (!boar) Debug.Log("BOAR IS NULL");
         endRace = GameObject.FindGameObjectWithTag("SceneTrigger").GetComponent<EndRace>();
         if (!endRace) Debug.Log("END TRIGGER IS NULL");
+
+        countDownTimeRemaining = countDownTime;
+        secondsTimeRemaining = Mathf.FloorToInt(raceTime % 60);
+        minutesTimeRemaining = Mathf.FloorToInt(raceTime / 60);
     }
 
     // Update is called once per frame
@@ -37,10 +41,12 @@ public class RaceManager : MonoBehaviour
             {
                 raceTime -= Time.deltaTime;
                 secondsTimeRemaining = Mathf.FloorToInt(raceTime % 60);
+                minutesTimeRemaining = Mathf.FloorToInt(raceTime / 60);
             }
             else
             {
                 secondsTimeRemaining = 0;
+                minutesTimeRemaining = 0;
                 lost = true;
                 boar.Lost();
             }
