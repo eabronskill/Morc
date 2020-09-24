@@ -96,7 +96,7 @@ public class Boar : MonoBehaviour
         controller.Move(jump);
     }
 
-    private void endSpeedBoost()
+    private void EndSpeedBoost()
     {
         currentSpeed /= boostMultiplier;
     }

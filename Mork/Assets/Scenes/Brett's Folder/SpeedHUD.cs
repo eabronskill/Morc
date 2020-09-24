@@ -14,6 +14,7 @@ public class SpeedHUD : MonoBehaviour
     public Text slowText;
     private float boost;
     private float slow;
+    private bool lastActiveWasBoost; 
 
     // Start is called before the first frame update
     void Start()
@@ -32,23 +33,39 @@ public class SpeedHUD : MonoBehaviour
         {
             whiteBox.SetActive(true);
 
-            if (boost > 0.0)
+            if (boost > 0.0 && boost > slow)
             {
+                lastActiveWasBoost = true;
                 BoostHUD.SetActive(true);
+                SlowHUD.SetActive(false);
                 boostText.text = "Speedboost: " + boost;
                 
             }
-            if (slow > 0.0)
+            else if (slow > 0.0 && slow > boost)
             {
+                lastActiveWasBoost = false;
                 SlowHUD.SetActive(true);
+                BoostHUD.SetActive(false);
                 slowText.text = "Slowdown: " + slow;
 
             }
-            if (boost > 0.0 && slow > 0.0)
+            else if (boost == slow)
             {
-                whiteBox.SetActive(false);
-                BoostHUD.SetActive(false);
-                SlowHUD.SetActive(false);
+                print("Boost equals Slow");
+                print(lastActiveWasBoost);
+                
+                if (lastActiveWasBoost) //In spite of this variable, the if and else below do not trigger.
+                {
+                    SlowHUD.SetActive(true);
+                    BoostHUD.SetActive(false);
+                    slowText.text = "Slowdown: " + slow;
+                }
+                else
+                {
+                    BoostHUD.SetActive(true);
+                    SlowHUD.SetActive(false);
+                    boostText.text = "Speedboost: " + boost;
+                }
             }
         }
         else
