@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndRace : LoadingScene
 {
-
+    [HideInInspector] public bool won;
     new void Start()
     {
         base.Start();
@@ -13,6 +13,7 @@ public class EndRace : LoadingScene
     {
         if (other.CompareTag("Boar"))
         {
+            won = true;
             this.SendMessage("loadingNextScene", "MainArea");
         }
     }

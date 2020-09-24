@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceController : MonoBehaviour
+public class TimerTest : MonoBehaviour
 {
-    public float raceTime;
-    [HideInInspector] public float raceTimeRemaining;
-    [HideInInspector] public bool won, lost;
+    public float secondsTimeRemaining;
+    public float countDownTimeRemaining;
+    public bool won;
+    public bool lost;
     // Start is called before the first frame update
     void Start()
     {
