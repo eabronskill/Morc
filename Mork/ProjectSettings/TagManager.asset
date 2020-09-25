@@ -9,6 +9,7 @@ TagManager:
   - Undefined
   - Mud
   - Corn
+  - SceneTrigger
   layers:
   - Default
   - TransparentFX

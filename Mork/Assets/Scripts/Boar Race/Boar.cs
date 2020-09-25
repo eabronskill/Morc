@@ -6,8 +6,11 @@ public class Boar : MonoBehaviour
 {
     public float currentSpeed, boostMultiplier, slowMultiplier;
     public float speedBoostCD, slowCD;
+    public float jumpHeight;
     [HideInInspector] public float speedBoostTimeRemaining, slowTimeRemaining;
     private float speedBoostTimer, slowTimer, originalSpeed;
+    private bool raceHasBegun;
+    private bool lost;
 
     //Initialize some variables
     private CharacterController controller;
@@ -29,6 +32,9 @@ public class Boar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lost) return;
+        if (!raceHasBegun) return;
+
         //Get the player input
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
 
@@ -50,6 +56,10 @@ public class Boar : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            Jump();
+        }
         if (speedBoostTimer > 0)
         {
             speedBoostTimer -= Time.deltaTime;
@@ -57,37 +67,52 @@ public class Boar : MonoBehaviour
         }
         else speedBoostTimeRemaining = 0;
 
-        if (slowTimer > Time.time)
+        if (slowTimer > 0)
         {
             slowTimer -= Time.deltaTime;
             slowTimeRemaining = Mathf.FloorToInt(slowTimer % 60);
         }
         else slowTimeRemaining = 0;
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Corn")){
             currentSpeed *= boostMultiplier;
             speedBoostTimer = speedBoostCD;
-            Invoke("endSpeedBoost", speedBoostCD);
+            Invoke(nameof(EndSpeedBoost), speedBoostCD);
         }
 
         if (other.CompareTag("Mud"))
         {
             currentSpeed *= slowMultiplier;
             slowTimer = slowCD;
-            Invoke("endSlow", slowCD);
+            Invoke(nameof(EndSlow), slowCD);
         }
     }
 
-    private void endSpeedBoost()
+    private void Jump()
+    {
+        Vector3 jump = new Vector3(0f, jumpHeight, 0f);
+        controller.Move(jump);
+    }
+
+    private void EndSpeedBoost()
     {
         currentSpeed /= boostMultiplier;
     }
 
-    private void endSlow()
+    private void EndSlow()
     {
         currentSpeed /= slowMultiplier;
+    }
+
+    public void BeginRace()
+    {
+        raceHasBegun = true;
+    }
+
+    public void Lost()
+    {
+        lost = true;
     }
 }

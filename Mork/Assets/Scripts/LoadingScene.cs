@@ -22,7 +22,7 @@ public class LoadingScene : MonoBehaviour
 
 
     //Load the next scene when this is called
-    protected IEnumerator loadingNextScene(string scene)
+    public IEnumerator loadingNextScene(string scene)
     {
         print("Got Here");
         //Go to the loading screen first
