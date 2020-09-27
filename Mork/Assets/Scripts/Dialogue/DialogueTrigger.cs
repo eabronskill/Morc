@@ -8,7 +8,20 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        if(!dialogue.inChat)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            dialogue.inChat = true;
+        }
         
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetInt(this.name,dialogue.loveValue);
+    }
+    private void OnEnable()
+    {
+        dialogue.loveValue = PlayerPrefs.GetInt(this.name);
     }
 }

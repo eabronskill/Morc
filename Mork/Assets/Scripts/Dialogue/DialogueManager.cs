@@ -11,8 +11,9 @@ public class DialogueManager : MonoBehaviour
     public Text DialogueText;
 
     private Queue<string> sentences;
-    private string game;
     private GameObject DialogueUI;
+    private int countSentences = 0;
+    private Dialogue currentDialogue;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        game = dialogue.game;
+        currentDialogue = dialogue;
         DialogueUI.SetActive(true);
         NameText.text = dialogue.name;
 
@@ -32,24 +33,37 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
+        //If Mork wins the race, change the dialogue
+        if(dialogue.loveValue>0)
+        {
+            sentences.Dequeue();
+            sentences.Dequeue();
+            sentences.Dequeue();
+        }
         NextSentence();
     }
     public void NextSentence()
     {
-        if(sentences.Count==0)
+        if(countSentences==3)
         {
+            currentDialogue.inChat = false;
             EndDialogue();
             return;
         }
         string sentence = (string)sentences.Dequeue();
         DialogueText.text = sentence;
+        countSentences++;
     }
 
     public void EndDialogue()
     {
-        if (game.Equals("Boar"))
+        if (currentDialogue.game.Equals("Boar"))
         {
             this.SendMessage("loadingNextScene","ObstacleCourse");
+        }
+        else
+        {
+            DialogueUI.SetActive(false);
         }
     }
 
