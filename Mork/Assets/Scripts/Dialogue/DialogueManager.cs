@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     private GameObject DialogueUI;
     private int countSentences = 0;
-    private Dialogue currentDialogue;
+    private string game;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        currentDialogue = dialogue;
+        countSentences = 0;
+        sentences.Clear();
+        game = dialogue.game;
         DialogueUI.SetActive(true);
         NameText.text = dialogue.name;
 
@@ -46,7 +48,6 @@ public class DialogueManager : MonoBehaviour
     {
         if(countSentences==3)
         {
-            currentDialogue.inChat = false;
             EndDialogue();
             return;
         }
@@ -57,7 +58,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        if (currentDialogue.game.Equals("Boar"))
+        if (game.Equals("Boar"))
         {
             this.SendMessage("loadingNextScene","ObstacleCourse");
         }

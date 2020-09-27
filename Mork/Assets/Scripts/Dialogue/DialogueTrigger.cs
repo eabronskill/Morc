@@ -5,20 +5,32 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    private bool resetLove = false;
+
+    public void Awake()
+    {
+        dialogue.loveValue = 0;
+    }
 
     public void TriggerDialogue()
     {
-        if(!dialogue.inChat)
-        {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            dialogue.inChat = true;
-        }
-        
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
+    private void OnApplicationQuit()
+    {
+        resetLove = true;
+    }
     private void OnDisable()
     {
-        PlayerPrefs.SetInt(this.name,dialogue.loveValue);
+        if(!resetLove)
+        {
+            PlayerPrefs.SetInt(this.name, dialogue.loveValue);
+        }
+        else
+        {
+            PlayerPrefs.SetInt(this.name, 0);
+        }
     }
     private void OnEnable()
     {

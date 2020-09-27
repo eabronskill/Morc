@@ -696,8 +696,7 @@ MonoBehaviour:
   dialogue:
     name: Voltha
     game: Nill
-    loveValue: 0
-    inChat: 0
+    loveValue: -1
     sentences:
     - What do you want Mork? I already told you, no one respects you here.
     - 'Your one of the weakest orcs in the tribe. '
@@ -2955,7 +2954,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Character speech goes here
@@ -5516,7 +5515,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063851677}
-  m_LocalRotation: {x: 0.28430077, y: -0.000000016496367, z: 0.0000000048917888, w: 0.95873517}
+  m_LocalRotation: {x: 0.28430077, y: 0.000000016496363, z: -0.0000000048917874, w: 0.95873517}
   m_LocalPosition: {x: 0.38156003, y: 4.67, z: -26.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5749,8 +5748,7 @@ MonoBehaviour:
   dialogue:
     name: Zirk
     game: Boar
-    loveValue: 0
-    inChat: 0
+    loveValue: -1
     sentences:
     - '*Grunt*'
     - 'What Mork? '
@@ -5948,11 +5946,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016496363
+      value: 0.00000001649636
       objectReference: {fileID: 0}
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000048917888
+      value: -0.000000004891787
       objectReference: {fileID: 0}
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.x
