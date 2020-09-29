@@ -12,6 +12,8 @@ TagManager:
   - SceneTrigger
   - Spear
   - WildBoar
+  - Torch
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceManager : MonoBehaviour
+public class RaidManager : MonoBehaviour
 {
-    public float raceTime, countDownTime;
-    [HideInInspector] public float secondsTimeRemaining, countDownTimeRemaining, minutesTimeRemaining;
+    public float countDownTime;
+    [HideInInspector] public float countDownTimeRemaining;
+    [HideInInspector] public float score;
     [HideInInspector] public bool won, lost;
     private Boar boar;
     private EndRace endRace;
     public float waitTime = 2f;
     private bool countDownHasBegun, raceHasBegun;
     private bool runOnce;
-    public bool raidSuccessful = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,43 +22,23 @@ public class RaceManager : MonoBehaviour
         if (!endRace) Debug.Log("END TRIGGER IS NULL");
 
         countDownTimeRemaining = countDownTime;
-        secondsTimeRemaining = Mathf.FloorToInt(raceTime % 60);
-        minutesTimeRemaining = Mathf.FloorToInt(raceTime / 60);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (lost) 
+        if (lost)
         {
             StartCoroutine(endRace.loadingNextScene("MainArea"));
             return;
         }
         if (endRace.won) { won = true; return; }
 
-        if (raceHasBegun)
+        if (!countDownHasBegun && !runOnce)
         {
-            if (raceTime > 0)
-            {
-                raceTime -= Time.deltaTime;
-                secondsTimeRemaining = Mathf.FloorToInt(raceTime % 60);
-                minutesTimeRemaining = Mathf.FloorToInt(raceTime / 60);
-            }
-            else
-            {
-                secondsTimeRemaining = 0;
-                minutesTimeRemaining = 0;
-                lost = true;
-                boar.Lost();
-            }
+            Invoke(nameof(StartCountdown), waitTime);
+            runOnce = true;
             return;
-        }
-
-        if (!countDownHasBegun && !runOnce) 
-        { 
-            Invoke(nameof(StartCountdown), waitTime); 
-            runOnce = true;  
-            return; 
         }
         else if (countDownHasBegun)
         {
@@ -75,7 +55,6 @@ public class RaceManager : MonoBehaviour
             }
         }
     }
-
     private void StartCountdown()
     {
         countDownHasBegun = true;
