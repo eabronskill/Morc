@@ -10,6 +10,8 @@ TagManager:
   - Mud
   - Corn
   - SceneTrigger
+  - Torch
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,13 @@ public class Boar : MonoBehaviour
     private float speedBoostTimer, slowTimer, originalSpeed;
     private bool raceHasBegun;
     private bool lost;
+    private bool doorHit;
+    public bool isRaid;
+    public int torchCount;
+    public GameObject torch;
+    public GameObject torchRight;
+    public GameObject torchLeft;
+    public float torchSpeed;
 
     //Initialize some variables
     private CharacterController controller;
@@ -52,14 +59,20 @@ public class Boar : MonoBehaviour
             //Make the object move
             controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
         }
+
+        if (Input.GetKeyDown("e"))
+        {
+            throwTorchRight();
+        }
+
+        if (Input.GetKeyDown("q"))
+        {
+            throwTorchLeft();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            Jump();
-        }
         if (speedBoostTimer > 0)
         {
             speedBoostTimer -= Time.deltaTime;
@@ -74,9 +87,23 @@ public class Boar : MonoBehaviour
         }
         else slowTimeRemaining = 0;
     }
+
+    private void throwTorchRight()
+    {
+        GameObject newTorch = Instantiate(torch, torchRight.transform.position, torchRight.transform.rotation);
+        newTorch.GetComponent<Rigidbody>().velocity = transform.right * torchSpeed;
+    }
+
+    private void throwTorchLeft()
+    {
+        GameObject newTorch = Instantiate(torch, torchLeft.transform.position, torchLeft.transform.rotation);
+        newTorch.GetComponent<Rigidbody>().velocity = -1 * transform.right * torchSpeed;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Corn")){
+        if (other.CompareTag("Corn"))
+        {
             currentSpeed *= boostMultiplier;
             speedBoostTimer = speedBoostCD;
             Invoke(nameof(EndSpeedBoost), speedBoostCD);
@@ -88,6 +115,12 @@ public class Boar : MonoBehaviour
             slowTimer = slowCD;
             Invoke(nameof(EndSlow), slowCD);
         }
+
+        if (other.CompareTag("Door"))
+        {
+            currentSpeed = originalSpeed;
+            doorHit = true;
+        }
     }
 
     private void Jump()
@@ -98,7 +131,8 @@ public class Boar : MonoBehaviour
 
     private void EndSpeedBoost()
     {
-        currentSpeed /= boostMultiplier;
+        if (!doorHit)
+            currentSpeed /= boostMultiplier;
     }
 
     private void EndSlow()
