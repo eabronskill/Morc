@@ -814,7 +814,7 @@ MonoBehaviour:
     - Tsk, that was just beginner's luck Mork.
     - If you really want to prove yourself, go raid other tribes and let's see how
       well you do.
-    - Not bad Mork, you gave everyone a surprise when you won the Bork Race.
+    - Not bad Mork, everyone was surprised when you won the Bork Race AND the raid.
     - If you keep this up, people will respect you in no time.
     - Prestige and glory is everything to an Orc! I personally like Orcs who win
       more in the races.
@@ -4868,11 +4868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 832840934935279630, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016582392
+      value: -0.000000016582392
       objectReference: {fileID: 0}
     - target: {fileID: 832840934935279630, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000004591715
+      value: 0.000000004591715
       objectReference: {fileID: 0}
     - target: {fileID: 832840934935279630, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.x
