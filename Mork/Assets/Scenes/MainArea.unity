@@ -807,17 +807,18 @@ MonoBehaviour:
     game: Nill
     loveValue: -1
     sentences:
-    - What do you want Mork? I already told you, no one respects you here.
-    - 'Your one of the weakest orcs in the tribe. '
-    - Want people to respect you or even court me? Then win a race!
-    - You actually won the race?
-    - Tsk, that was just beginner's luck Mork.
-    - If you really want to prove yourself, go raid other tribes and let's see how
-      well you do.
-    - Not bad Mork, everyone was surprised when you won the Bork Race AND the raid.
-    - If you keep this up, people will respect you in no time.
-    - Prestige and glory is everything to an Orc! I personally like Orcs who win
-      more in the races.
+    - What do you want Mork?
+    - You're the weakest orc in this tribe, why should I even waste my breathe on
+      you?
+    - Look, go win a boar race and I MIGHT think about talking to you.
+    - You... actually won the race?
+    - Well, that was just beginner's luck Mork.
+    - If you really want to prove yourself, the warriors are going for a raid. Join
+      them, and if you come back alive then we'll talk.
+    - Mork! I can't believe you actually led the charge in the raid! You risked your
+      life to prove yourself to me! I'm sorry for doubting you.
+    - '[Voltha looks at you longingly and smiles]'
+    - Maybe I'll see you around the village, soon?
 --- !u!23 &157239865
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4373,7 +4374,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063851677}
-  m_LocalRotation: {x: 0.28430077, y: 0.000000016496363, z: -0.0000000048917874, w: 0.95873517}
+  m_LocalRotation: {x: 0.28430077, y: -0.000000016496367, z: 0.0000000048917888, w: 0.95873517}
   m_LocalPosition: {x: 0.38156003, y: 4.67, z: -26.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4772,11 +4773,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001649636
+      value: -0.000000016496363
       objectReference: {fileID: 0}
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000004891787
+      value: 0.0000000048917888
       objectReference: {fileID: 0}
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.x
