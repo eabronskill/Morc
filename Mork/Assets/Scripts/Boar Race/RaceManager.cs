@@ -12,6 +12,7 @@ public class RaceManager : MonoBehaviour
     public float waitTime = 2f;
     private bool countDownHasBegun, raceHasBegun;
     private bool runOnce;
+    public bool raidSuccessful = true;
     // Start is called before the first frame update
     void Start()
     {
