@@ -233,6 +233,136 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0c1a7fba05e8e5743abb8bd39a4c3dd2, type: 3}
   m_PrefabInstance: {fileID: 45189304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &49858932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49858933}
+  - component: {fileID: 49858938}
+  - component: {fileID: 49858937}
+  - component: {fileID: 49858936}
+  - component: {fileID: 49858935}
+  - component: {fileID: 49858934}
+  m_Layer: 0
+  m_Name: Raid
+  m_TagString: NPC
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49858933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49858932}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.58, y: -8.56, z: -6.88}
+  m_LocalScale: {x: 1.6957825, y: 1.6957825, z: 1.6957825}
+  m_Children: []
+  m_Father: {fileID: 610054488}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &49858934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49858932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b56a77edab81114b8b310b4556a6543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &49858935
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49858932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &49858936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49858932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b2f70a5949a89449c18e159bd82af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Zork
+    game: Raid
+    loveValue: 0
+    sentences:
+    - Runt Mork!
+    - You want join raid?
+    - Heh, make sure you don't get crushed by boar! Hahahah!
+--- !u!23 &49858937
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49858932}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &49858938
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49858932}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &68354753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3206452877230113109, guid: 7c2032ad83306a8458f65b2acc06a115, type: 3}
@@ -680,6 +810,10 @@ MonoBehaviour:
     - What do you want Mork? I already told you, no one respects you here.
     - 'Your one of the weakest orcs in the tribe. '
     - Want people to respect you or even court me? Then win a race!
+    - You actually won the race?
+    - Tsk, that was just beginner's luck Mork.
+    - If you really want to prove yourself, go raid other tribes and let's see how
+      well you do.
     - Not bad Mork, you gave everyone a surprise when you won the Bork Race.
     - If you keep this up, people will respect you in no time.
     - Prestige and glory is everything to an Orc! I personally like Orcs who win
@@ -1756,6 +1890,7 @@ Transform:
   m_Children:
   - {fileID: 2123957844}
   - {fileID: 157239861}
+  - {fileID: 49858933}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4238,7 +4373,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063851677}
-  m_LocalRotation: {x: 0.28430077, y: -0.000000016496367, z: 0.0000000048917888, w: 0.95873517}
+  m_LocalRotation: {x: 0.28430077, y: 0.000000016496363, z: -0.0000000048917874, w: 0.95873517}
   m_LocalPosition: {x: 0.38156003, y: 4.67, z: -26.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4439,7 +4574,7 @@ MonoBehaviour:
   dialogue:
     name: Zirk
     game: Boar
-    loveValue: -1
+    loveValue: 0
     sentences:
     - '*Grunt*'
     - 'What Mork? '
@@ -4637,11 +4772,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016496363
+      value: 0.00000001649636
       objectReference: {fileID: 0}
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000048917888
+      value: -0.000000004891787
       objectReference: {fileID: 0}
     - target: {fileID: 832840933529773551, guid: bb89c5e8fd3627044880803bf3dcef05, type: 3}
       propertyPath: m_LocalRotation.x

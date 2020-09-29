@@ -36,12 +36,13 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         //If Mork wins the race, change the dialogue
-        if(dialogue.loveValue>0)
+        for(int i=0;i<dialogue.loveValue;i++)
         {
             sentences.Dequeue();
             sentences.Dequeue();
             sentences.Dequeue();
         }
+
         NextSentence();
     }
     public void NextSentence()
@@ -61,6 +62,10 @@ public class DialogueManager : MonoBehaviour
         if (game.Equals("Boar"))
         {
             this.SendMessage("loadingNextScene","ObstacleCourse");
+        }
+        else if(game.Equals("Raid"))
+        {
+            this.SendMessage("loadingNextScene", "Raid");
         }
         else
         {

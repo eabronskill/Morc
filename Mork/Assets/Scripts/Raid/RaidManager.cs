@@ -55,7 +55,6 @@ public class RaidManager : MonoBehaviour
             }
         }
     }
-
     private void StartCountdown()
     {
         countDownHasBegun = true;
